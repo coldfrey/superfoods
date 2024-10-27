@@ -12,10 +12,10 @@ class SupplierPopup extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 8,
-      margin: EdgeInsets.symmetric(horizontal: 16),
+      margin: const EdgeInsets.symmetric(horizontal: 16),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Container(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         height: 150, // Fixed height for a square-ish popup
         child: Row(
           children: [
@@ -31,7 +31,7 @@ class SupplierPopup extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(width: 12),
+            const SizedBox(width: 12),
             // Supplier Details
             Expanded(
               child: Column(
@@ -40,7 +40,7 @@ class SupplierPopup extends StatelessWidget {
                   // Supplier Name
                   Text(
                     supplier.name,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
@@ -52,16 +52,16 @@ class SupplierPopup extends StatelessWidget {
                       color: Colors.grey[600],
                     ),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   // Supplier Rating
                   Row(
                     children: [
                       Icon(Icons.star, color: Colors.yellow[700], size: 16),
-                      SizedBox(width: 4),
+                      const SizedBox(width: 4),
                       Text('${supplier.rating}'),
                     ],
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   // Supplier Tags
                   Expanded(
                     child: Wrap(
@@ -71,7 +71,7 @@ class SupplierPopup extends StatelessWidget {
                           .map((tag) => Chip(
                                 label: Text(
                                   tag,
-                                  style: TextStyle(fontSize: 12),
+                                  style: const TextStyle(fontSize: 12),
                                 ),
                                 backgroundColor: Colors.grey[200],
                                 visualDensity: VisualDensity.compact,
