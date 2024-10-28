@@ -11,59 +11,64 @@ class HomeView extends GetView<HomeController> {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: screenWidth < 600 ? null : TopNavBar(),
-      drawer: screenWidth < 600 ? Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blueGrey[900],
-              ),
-              child: Row(
-                children: [
-                  Image.asset(
-                    'assets/logo.png',
-                    height: 40,
-                  ),
-                  const SizedBox(width: 8),
-                  const Text(
-                    'Superfoods',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+      appBar: TopNavBar(),
+      drawer: screenWidth < 600
+          ? Drawer(
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: <Widget>[
+                  DrawerHeader(
+                    decoration: BoxDecoration(
+                      color: Colors.blueGrey[900],
                     ),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          'assets/logo.png',
+                          height: 40,
+                        ),
+                        const SizedBox(width: 8),
+                        const Text(
+                          'Superfoods',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.list),
+                    title: Text('Suppliers'),
+                    onTap: () {
+                      controller.onTabTapped(0);
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.map),
+                    title: Text('Map'),
+                    onTap: () {
+                      controller.onTabTapped(1);
+                      Navigator.pop(context);
+                    },
                   ),
                 ],
               ),
-            ),
-            ListTile(
-              leading: Icon(Icons.list),
-              title: Text('Suppliers'),
-              onTap: () {
-                controller.onTabTapped(0);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.map),
-              title: Text('Map'),
-              onTap: () {
-                controller.onTabTapped(1);
-                Navigator.pop(context);
-              },
-            ),
+            )
+          : null,
+      body: Container(
+        color: Theme.of(context).scaffoldBackgroundColor,
+        child: PageView(
+          controller: controller.pageController,
+          onPageChanged: controller.onTabChanged,
+          children: [
+            const ListViewPage(), // Left tab
+            MapViewPage(), // Right tab
           ],
         ),
-      ) : null,
-      body: PageView(
-        controller: controller.pageController,
-        onPageChanged: controller.onTabChanged,
-        children: [
-          const ListViewPage(), // Left tab
-          MapViewPage(), // Right tab
-        ],
       ),
       bottomNavigationBar: Obx(() => BottomNavigationBar(
             currentIndex: controller.selectedIndex.value,
