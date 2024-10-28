@@ -1,12 +1,13 @@
 import 'package:get/get.dart';
+import '../../../data/models/supplier_model.dart';
 
 class SupplierController extends GetxController {
-  //TODO: Implement SupplierController
+  late Supplier supplier;
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+    supplier = Get.arguments as Supplier;
   }
 
   @override
@@ -18,6 +19,4 @@ class SupplierController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }
