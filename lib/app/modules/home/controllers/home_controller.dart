@@ -6,7 +6,8 @@ class HomeController extends GetxController {
   var selectedIndex = 0.obs;
   final pageController = PageController();
 
-   var suppliers = <Supplier>[
+  // List of suppliers
+  var suppliers = <Supplier>[
     Supplier(
       name: 'Ocean Fresh Seafood',
       imageUrl: 'https://via.placeholder.com/80',
@@ -78,11 +79,13 @@ class HomeController extends GetxController {
     ),
   ].obs;
 
+  // Method to handle tab selection
   void onTabTapped(int index) {
     selectedIndex.value = index;
     pageController.jumpToPage(index);
   }
 
+  // Method to handle page change
   void onTabChanged(int index) {
     selectedIndex.value = index;
   }
@@ -103,5 +106,6 @@ class HomeController extends GetxController {
     super.onClose();
   }
 
+  // Method to increment the count
   void increment() => count.value++;
 }

@@ -39,21 +39,28 @@ class HomeView extends GetView<HomeController> {
                       ],
                     ),
                   ),
-                  ListTile(
-                    leading: Icon(Icons.list),
-                    title: Text('Suppliers'),
-                    onTap: () {
-                      controller.onTabTapped(0);
-                      Navigator.pop(context);
-                    },
+                  // Wrapping ListTile elements with MouseRegion to change cursor on hover
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: ListTile(
+                      leading: Icon(Icons.list),
+                      title: Text('Suppliers'),
+                      onTap: () {
+                        controller.onTabTapped(0);
+                        Navigator.pop(context);
+                      },
+                    ),
                   ),
-                  ListTile(
-                    leading: Icon(Icons.map),
-                    title: Text('Map'),
-                    onTap: () {
-                      controller.onTabTapped(1);
-                      Navigator.pop(context);
-                    },
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: ListTile(
+                      leading: Icon(Icons.map),
+                      title: Text('Map'),
+                      onTap: () {
+                        controller.onTabTapped(1);
+                        Navigator.pop(context);
+                      },
+                    ),
                   ),
                 ],
               ),
