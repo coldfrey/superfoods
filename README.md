@@ -18,16 +18,6 @@ To simplify the procurement process for superyachts by connecting them with a di
   - [Use Case: Superyacht Chef](#use-case-superyacht-chef)
   - [Key Benefits](#key-benefits)
   - [Unique Selling Points](#unique-selling-points)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-  - [For Buyers](#for-buyers-chefsprocurement-officers-1)
-  - [For Suppliers](#for-suppliers-1)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-- [Acknowledgments](#acknowledgments)
 
 ## About the Project
 
