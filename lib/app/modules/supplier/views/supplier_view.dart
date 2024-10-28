@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/supplier_controller.dart';
+import '../../../widgets/top_nav_bar.dart';
 
 class SupplierView extends GetView<SupplierController> {
   const SupplierView({super.key});
@@ -8,10 +9,7 @@ class SupplierView extends GetView<SupplierController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(controller.supplier.name),
-        centerTitle: true,
-      ),
+      appBar: TopNavBar(),
       body: DefaultTabController(
         length: 5,
         child: Column(
