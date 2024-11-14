@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
   @override
@@ -23,24 +24,31 @@ class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
           child: Row(
             children: [
               // Site Logo and Name
-              Row(
-                children: [
-                  // Logo Image
-                  Image.asset(
-                    'assets/logo.png',
-                    height: 40,
+              MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {
+                    Get.offAllNamed('/'); // Navigate to Home page
+                  },
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'assets/logo.png',
+                        height: 40,
+                      ),
+                      const SizedBox(width: 8),
+                      // Site Name
+                      const Text(
+                        'Superfoods',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(width: 8),
-                  // Site Name
-                  const Text(
-                    'Superfoods',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+                ),
               ),
               const Spacer(),
               // Drawer Icon
@@ -66,24 +74,31 @@ class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
           child: Row(
             children: [
               // Site Logo and Name
-              Row(
-                children: [
-                  // Logo Image
-                  Image.asset(
-                    'assets/logo.png', // Replace with your logo asset path
-                    height: 40,
+              MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {
+                    Get.offAllNamed('/'); // Navigate to Home page
+                  },
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'assets/logo.png',
+                        height: 40,
+                      ),
+                      const SizedBox(width: 8),
+                      // Site Name
+                      const Text(
+                        'Superfoods',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(width: 8),
-                  // Site Name
-                  const Text(
-                    'Superfoods',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+                ),
               ),
               const SizedBox(width: 32),
               // Super Search Bar
@@ -137,6 +152,12 @@ class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
               Row(
                 children: [
                   IconButton(
+                    icon: const Icon(Icons.account_circle, color: Colors.white),
+                    onPressed: () {
+                      // Account action
+                    },
+                  ),
+                  IconButton(
                     icon: const Icon(Icons.notifications, color: Colors.white),
                     onPressed: () {
                       // Notifications action
@@ -146,12 +167,6 @@ class TopNavBar extends StatelessWidget implements PreferredSizeWidget {
                     icon: const Icon(Icons.brightness_6, color: Colors.white),
                     onPressed: () {
                       // Toggle light/dark mode
-                    },
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.account_circle, color: Colors.white),
-                    onPressed: () {
-                      // Account action
                     },
                   ),
                 ],

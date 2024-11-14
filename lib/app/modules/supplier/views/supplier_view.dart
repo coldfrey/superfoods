@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/supplier_controller.dart';
-import '../../../widgets/top_nav_bar.dart';
+import '../../../helpers/widgets/top_nav_bar.dart';
 
 class SupplierView extends GetView<SupplierController> {
   const SupplierView({super.key});
